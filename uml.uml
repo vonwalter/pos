@@ -1,0 +1,83 @@
+@startuml
+
+entity Empresa {
+    + id: Integer
+    + nombre: CharField
+    + direccion: CharField
+    + telefono: CharField
+    + email: EmailField
+}
+
+entity PuntoDeVenta {
+    + id: Integer
+    + nombre: CharField
+    + direccion: CharField
+    + telefono: CharField
+}
+
+entity Usuario {
+    + id: Integer
+    + username: CharField
+    + password: CharField
+    + email: EmailField
+    --
+    + empresa_id: Integer
+    + sucursal_id: Integer
+    + rol: CharField
+}
+
+entity Cliente {
+    + id: Integer
+    + nombre: CharField
+    + direccion: CharField
+    + telefono: CharField
+    + email: EmailField
+    + cuit: CharField
+    --
+    + empresa_id: Integer
+}
+
+entity Producto {
+    + id: Integer
+    + nombre: CharField
+    + descripcion: TextField
+    + precio: DecimalField
+}
+
+entity Stock {
+    + id: Integer
+    --
+    + producto_id: Integer
+    + cantidad: Integer
+    + fecha: DateField
+}
+
+entity Compra {
+    + id: Integer
+    + proveedor: CharField
+    + fecha: DateField
+    + numero_factura: CharField
+    --
+    + productos: ManyToManyField
+}
+
+entity Venta {
+    + id: Integer
+    --
+    + cliente_id: Integer
+    + fecha: DateField
+    + numero_factura: CharField
+    + usuario_id: Integer
+    --
+    + productos: ManyToManyField
+}
+
+Empresa -- PuntoDeVenta: Tiene
+PuntoDeVenta -- Usuario: Tiene
+Empresa -- Cliente: Tiene
+Producto -- Stock: Tiene
+Cliente -- Venta: Realiza
+Usuario -- Venta: Realiza
+Proveedor -- Compra: Realiza
+
+@enduml

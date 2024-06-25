@@ -1,0 +1,73 @@
+@startuml
+
+!define Table(name, desc) entity name << (T, #FFFFFF) >>
+!define Field(name, type) name : type
+
+Table(Empresa, "Tabla para almacenar información de empresas") {
+    Field(id, Integer)
+    Field(nombre, CharField)
+    Field(direccion, CharField)
+    Field(telefono, CharField)
+    Field(email, EmailField)
+}
+
+Table(PuntoDeVenta, "Tabla para almacenar información de puntos de venta") {
+    Field(id, Integer)
+    Field(nombre, CharField)
+    Field(direccion, CharField)
+    Field(telefono, CharField)
+    Field(empresa_id, ForeignKey)
+}
+
+Table(Usuario, "Tabla para almacenar información de usuarios") {
+    Field(id, Integer)
+    Field(username, CharField)
+    Field(password, CharField)
+    Field(email, EmailField)
+    Field(empresa_id, ForeignKey)
+    Field(sucursal_id, ForeignKey)
+    Field(rol, CharField)
+}
+
+Table(Cliente, "Tabla para almacenar información de clientes") {
+    Field(id, Integer)
+    Field(nombre, CharField)
+    Field(direccion, CharField)
+    Field(telefono, CharField)
+    Field(email, EmailField)
+    Field(cuit, CharField)
+    Field(empresa_id, ForeignKey)
+}
+
+Table(Producto, "Tabla para almacenar información de productos") {
+    Field(id, Integer)
+    Field(nombre, CharField)
+    Field(descripcion, TextField)
+    Field(precio, DecimalField)
+}
+
+Table(Stock, "Tabla para almacenar información de stock de productos") {
+    Field(id, Integer)
+    Field(producto_id, ForeignKey)
+    Field(cantidad, Integer)
+    Field(fecha, DateField)
+}
+
+Table(Compra, "Tabla para almacenar información de compras") {
+    Field(id, Integer)
+    Field(proveedor, CharField)
+    Field(fecha, DateField)
+    Field(numero_factura, CharField)
+    Field(productos, ManyToManyField)
+}
+
+Table(Venta, "Tabla para almacenar información de ventas") {
+    Field(id, Integer)
+    Field(cliente_id, ForeignKey)
+    Field(fecha, DateField)
+    Field(numero_factura, CharField)
+    Field(productos, ManyToManyField)
+    Field(usuario_id, ForeignKey)
+}
+
+@enduml

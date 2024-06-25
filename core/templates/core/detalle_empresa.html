@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ empresa.nombre }}</title>
+</head>
+<body>
+    <h1>{{ empresa.nombre }}</h1>
+    <p>Dirección: {{ empresa.direccion }}</p>
+    <p>Teléfono: {{ empresa.telefono }}</p>
+    <p>Email: {{ empresa.email }}</p>
+    <a href="{% url 'lista_empresas' %}">Volver a la lista</a>
+</body>
+</html>

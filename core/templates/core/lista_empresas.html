@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Empresas</title>
+</head>
+<body>
+    <h1>Lista de Empresas</h1>
+    <ul>
+        {% for empresa in empresas %}
+        <li><a href="{% url 'detalle_empresa' empresa.pk %}">{{ empresa.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_empresa' %}">Agregar Empresa</a>
+</body>
+</html>

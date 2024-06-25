@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ punto_venta.nombre }}</title>
+</head>
+<body>
+    <h1>{{ punto_venta.nombre }}</h1>
+    <p>Dirección: {{ punto_venta.direccion }}</p>
+    <p>Teléfono: {{ punto_venta.telefono }}</p>
+    <p>Empresa: {{ punto_venta.empresa.nombre }}</p>
+    <a href="{% url 'lista_puntos_venta' %}">Volver a la lista</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seleccionar Empresa</title>
+</head>
+<body>
+    <h1>Seleccionar Empresa</h1>
+    <ul>
+        {% for empresa in empresas %}
+        <li><a href="{% url 'lista_clientes' empresa.pk %}">{{ empresa.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Volver al menú</a>
+</body>
+</html>

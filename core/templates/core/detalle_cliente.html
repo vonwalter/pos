@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ cliente.nombre }}</title>
+</head>
+<body>
+    <h1>{{ cliente.nombre }}</h1>
+    <p>Dirección: {{ cliente.direccion }}</p>
+    <p>Teléfono: {{ cliente.telefono }}</p>
+    <p>Email: {{ cliente.email }}</p>
+    <p>CUIT: {{ cliente.cuit }}</p>
+    <a href="{% url 'lista_clientes' cliente.empresa.pk %}">Volver a la lista</a>
+</body>
+</html>

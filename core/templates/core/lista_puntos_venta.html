@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puntos de Venta</title>
+</head>
+<body>
+    <h1>Lista de Puntos de Venta</h1>
+    <ul>
+        {% for punto in puntos_venta %}
+        <li><a href="{% url 'detalle_punto_venta' punto.pk %}">{{ punto.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_punto_venta' %}">Agregar Punto de Venta</a>
+    <a href="{% url 'home' %}">Volver al menú</a>
+</body>
+</html>

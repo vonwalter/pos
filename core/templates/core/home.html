@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Punto de Venta</title>
+</head>
+<body>
+    <h1>Bienvenido al Sistema de Punto de Venta</h1>
+    <p>Empresa ID: {{ empresa_id }}</p>
+    <p>Sucursal ID: {{ sucursal_id }}</p>
+    <p>Rol: {{ rol }}</p>
+    <ul>
+        <li><a href="{% url 'lista_empresas' %}">Empresas</a></li>
+        <li><a href="{% url 'lista_puntos_venta' %}">Puntos de Venta</a></li>
+        <li><a href="{% url 'seleccionar_empresa' %}">Clientes</a></li>
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

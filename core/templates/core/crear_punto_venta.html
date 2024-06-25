@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Punto de Venta</title>
+</head>
+<body>
+    <h1>Crear Nuevo Punto de Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_puntos_venta' %}">Volver a la lista</a>
+</body>
+</html>
